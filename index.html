@@ -1,0 +1,1520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101010" />
+    <title>DeutschTest | Arslen Ayadi</title>
+
+    <style>
+            :root {
+              --bg: #101010;
+              --panel: #1b1b1b;
+              --panel2: #292929;
+              --text: #ffffff;
+              --muted: #bdbdbd;
+              --red: #dd0000;
+              --gold: #ffce00;
+              --border: #414141;
+              --green: #36d399;
+              --bad: #ff7085;
+            }
+            * {
+              box-sizing: border-box;
+            }
+            html {
+              scroll-behavior: smooth;
+            }
+            body {
+              margin: 0;
+              min-height: 100vh;
+              color: var(--text);
+              font-family: Arial, Helvetica, sans-serif;
+              background: radial-gradient(ellipse at top, #303030, var(--bg) 70%);
+            }
+            button,
+            select {
+              font: inherit;
+            }
+            button {
+              cursor: pointer;
+              transition: 0.2s;
+            }
+            button:hover {
+              transform: translateY(-2px);
+            }
+            a {
+              color: inherit;
+            }
+            header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              gap: 15px;
+              flex-wrap: wrap;
+              padding: 18px max(5%, calc((100% - 1050px) / 2));
+              border-bottom: 1px solid var(--border);
+              background: #101010ee;
+            }
+            .logo {
+              font-size: 22px;
+              font-weight: 900;
+              letter-spacing: 1px;
+            }
+            .logo span:last-child {
+              color: var(--gold);
+            }
+            .flag {
+              display: inline-flex;
+              flex-direction: column;
+              width: 23px;
+              height: 15px;
+              vertical-align: middle;
+              margin-right: 8px;
+            }
+            .flag i {
+              height: 33.33%;
+            }
+            .flag i:nth-child(1) {
+              background: #000;
+            }
+            .flag i:nth-child(2) {
+              background: #dd0000;
+            }
+            .flag i:nth-child(3) {
+              background: #ffce00;
+            }
+            select {
+              background: var(--panel);
+              color: white;
+              border: 1px solid var(--border);
+              padding: 10px;
+              border-radius: 10px;
+            }
+            main {
+              max-width: 900px;
+              margin: 30px auto;
+              padding: 0 17px 45px;
+            }
+            .hero {
+              text-align: center;
+              margin: 32px 0 25px;
+            }
+            .eyebrow {
+              color: var(--gold);
+              font-size: 12px;
+              font-weight: bold;
+              letter-spacing: 2px;
+            }
+            h1 {
+              font-size: clamp(32px, 6vw, 49px);
+              margin: 15px 0;
+            }
+            h1 span {
+              color: var(--gold);
+            }
+            p {
+              line-height: 1.7;
+            }
+            .muted {
+              color: var(--muted);
+            }
+            .card {
+              background: var(--panel);
+              border: 1px solid var(--border);
+              border-radius: 20px;
+              padding: clamp(18px, 4vw, 30px);
+              box-shadow: 0 20px 60px #0004;
+            }
+            .hero-image {
+              position: relative;
+              height: 285px;
+              border-radius: 17px;
+              overflow: hidden;
+              margin: 25px 0;
+              background: #292929;
+              border: 1px solid #444;
+            }
+            .hero-image img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              display: block;
+              filter: brightness(0.55);
+            }
+            .image-caption {
+              position: absolute;
+              inset: 0;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              padding: 20px;
+              background: linear-gradient(90deg, #0009, #0002);
+            }
+            .image-caption h2 {
+              font-size: clamp(23px, 4vw, 35px);
+              margin: 14px 0 4px;
+            }
+            .image-caption p {
+              color: var(--gold);
+              font-weight: bold;
+              margin: 0;
+            }
+            .flag-bar {
+              display: flex;
+              width: 90px;
+              height: 9px;
+              flex-direction: column;
+            }
+            .flag-bar span {
+              height: 33.33%;
+            }
+            .flag-bar span:nth-child(1) {
+              background: #000;
+            }
+            .flag-bar span:nth-child(2) {
+              background: #dd0000;
+            }
+            .flag-bar span:nth-child(3) {
+              background: #ffce00;
+            }
+            .grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 12px;
+              margin: 20px 0;
+            }
+            .info {
+              background: var(--panel2);
+              padding: 15px;
+              border-radius: 12px;
+              text-align: center;
+            }
+            .info strong {
+              display: block;
+              font-size: 23px;
+              margin-bottom: 7px;
+            }
+            .info small {
+              color: var(--muted);
+            }
+            .levels {
+              display: flex;
+              flex-wrap: wrap;
+              gap: 8px;
+              margin: 20px 0;
+            }
+            .level {
+              background: var(--panel2);
+              border: 1px solid var(--border);
+              padding: 8px 12px;
+              border-radius: 9px;
+              color: #ddd;
+              font-size: 13px;
+            }
+            .btn {
+              border: 0;
+              border-radius: 11px;
+              padding: 13px 19px;
+              font-weight: bold;
+              background: linear-gradient(110deg, #dd0000, #ffce00);
+              color: #111;
+            }
+            .btn.secondary {
+              background: var(--panel2);
+              color: white;
+              border: 1px solid var(--border);
+            }
+            .primary {
+              width: 100%;
+              padding: 16px;
+              margin-top: 8px;
+            }
+            .btn:disabled {
+              opacity: 0.35;
+              cursor: not-allowed;
+              transform: none;
+            }
+            .hidden {
+              display: none !important;
+            }
+            .progress-row {
+              display: flex;
+              justify-content: space-between;
+              gap: 12px;
+              flex-wrap: wrap;
+              margin-bottom: 12px;
+              color: var(--muted);
+              font-size: 14px;
+            }
+            .timer {
+              color: var(--gold);
+              font-weight: bold;
+            }
+            .timer.warning {
+              color: var(--bad);
+            }
+            .track {
+              height: 8px;
+              background: #3b3b3b;
+              border-radius: 20px;
+              overflow: hidden;
+              margin-bottom: 25px;
+            }
+            .fill {
+              height: 100%;
+              width: 0;
+              background: linear-gradient(90deg, #dd0000, #ffce00);
+              transition: width 0.25s;
+            }
+            .tag {
+              display: inline-block;
+              background: #453800;
+              color: var(--gold);
+              padding: 7px 12px;
+              border-radius: 20px;
+              font-size: 13px;
+              font-weight: bold;
+            }
+            .question {
+              font-size: clamp(21px, 4vw, 29px);
+              line-height: 1.45;
+              margin: 20px 0 25px;
+            }
+            .options {
+              display: grid;
+              gap: 12px;
+            }
+            .option {
+              display: flex;
+              align-items: center;
+              gap: 12px;
+              width: 100%;
+              text-align: left;
+              padding: 15px;
+              border-radius: 12px;
+              background: var(--panel2);
+              color: white;
+              border: 1px solid var(--border);
+            }
+            .option:hover {
+              border-color: var(--gold);
+            }
+            .option.selected {
+              border-color: var(--gold);
+              background: #393015;
+            }
+            .letter {
+              display: grid;
+              place-items: center;
+              width: 32px;
+              height: 32px;
+              flex-shrink: 0;
+              border-radius: 8px;
+              background: #404040;
+              font-weight: bold;
+            }
+            .nav {
+              display: flex;
+              justify-content: space-between;
+              gap: 12px;
+              margin-top: 24px;
+            }
+            .nav button {
+              min-width: 105px;
+            }
+            .feedback {
+              background: var(--panel2);
+              padding: 16px;
+              border-radius: 12px;
+              margin-top: 18px;
+              line-height: 1.7;
+            }
+            .score {
+              font-size: 66px;
+              font-weight: 900;
+              margin: 15px 0;
+              letter-spacing: -2px;
+            }
+            .score small {
+              font-size: 22px;
+              color: var(--muted);
+              letter-spacing: 0;
+            }
+            .result-level {
+              font-size: 27px;
+              color: var(--gold);
+              font-weight: bold;
+            }
+            .stat-grid {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              gap: 10px;
+              margin: 25px 0;
+            }
+            .stat {
+              background: var(--panel2);
+              padding: 15px;
+              border-radius: 12px;
+              text-align: center;
+            }
+            .stat strong {
+
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Take a free German language placement test from A1 to C2. Discover your German level with DeutschTest.">
+        <title>DeutschTest - German Level Test</title>
+
+        <style>
+          :root {
+            --black: #171717;
+            --red: #d71920;
+            --gold: #f4c542;
+            --white: #ffffff;
+            --muted: #6b7280;
+            --bg: #f5f6f8;
+            --border: #e5e7eb;
+            --green: #15803d;
+          }
+
+          * {
+            box-sizing: border-box;
+          }
+
+          body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--bg);
+            color: var(--black);
+            line-height: 1.6;
+          }
+
+          header {
+            background: var(--white);
+            border-bottom: 4px solid transparent;
+            border-image: linear-gradient(
+              to right,
+              var(--black) 33.3%,
+              var(--red) 33.3%,
+              var(--red) 66.6%,
+              var(--gold) 66.6%
+            ) 1;
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+          }
+
+          .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+          }
+
+          .logo img {
+            width: 48px;
+            height: 36px;
+            object-fit: cover;
+            border-radius: 7px;
+            box-shadow: 0 3px 10px #0002;
+          }
+
+          .logo h1 {
+            margin: 0;
+            font-size: 25px;
+            letter-spacing: -0.8px;
+          }
+
+          .logo h1 span {
+            color: var(--red);
+          }
+
+          select, button {
+            font: inherit;
+          }
+
+          select {
+            padding: 9px 12px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: white;
+            cursor: pointer;
+          }
+
+          main {
+            width: min(900px, 92%);
+            margin: 35px auto;
+          }
+
+          .hero {
+            background: var(--black);
+            color: white;
+            padding: 35px 25px;
+            border-radius: 18px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+          }
+
+          .hero::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border: 24px solid #ffffff0c;
+            border-radius: 50%;
+            right: -60px;
+            top: -70px;
+          }
+
+          .flag-label {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #ffffff14;
+            border: 1px solid #ffffff30;
+            border-radius: 30px;
+            font-size: 13px;
+            margin-bottom: 12px;
+          }
+
+          .hero h2 {
+            font-size: clamp(27px, 5vw, 42px);
+            margin: 5px 0 12px;
+            line-height: 1.2;
+          }
+
+          .hero h2 span {
+            color: var(--gold);
+          }
+
+          .hero p {
+            color: #e5e7eb;
+            max-width: 580px;
+            margin: 0 auto 22px;
+          }
+
+          .features {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            color: #f3f4f6;
+            font-size: 14px;
+          }
+
+          .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            margin-top: 22px;
+            box-shadow: 0 5px 20px #00000006;
+          }
+
+          .card h3 {
+            margin-top: 0;
+          }
+
+          .levels {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 8px;
+            margin: 20px 0;
+          }
+
+          .level {
+            padding: 12px 3px;
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-weight: bold;
+            background: #fafafa;
+          }
+
+          .level small {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            font-weight: normal;
+          }
+
+          .level:nth-child(1),
+          .level:nth-child(2) {
+            border-bottom: 3px solid #22c55e;
+          }
+
+          .level:nth-child(3),
+          .level:nth-child(4) {
+            border-bottom: 3px solid #eab308;
+          }
+
+          .level:nth-child(5),
+          .level:nth-child(6) {
+            border-bottom: 3px solid var(--red);
+          }
+
+          .btn {
+            border: none;
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform .15s, opacity .15s;
+          }
+
+          .btn:hover {
+            transform: translateY(-1px);
+            opacity: .92;
+          }
+
+          .btn-primary {
+            background: var(--red);
+            color: white;
+          }
+
+          .btn-dark {
+            background: var(--black);
+            color: white;
+          }
+
+          .btn-light {
+            background: #f3f4f6;
+            color: var(--black);
+            border: 1px solid var(--border);
+          }
+
+          .btn:disabled {
+            opacity: .4;
+            cursor: not-allowed;
+            transform: none;
+          }
+
+          .full {
+            width: 100%;
+          }
+
+          .test-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+          }
+
+          .timer {
+            background: #fff4d6;
+            padding: 7px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: #854d0e;
+          }
+
+          .progress {
+            height: 8px;
+            border-radius: 20px;
+            background: #e5e7eb;
+            overflow: hidden;
+            margin: 12px 0 24px;
+          }
+
+          .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--red), var(--gold));
+            width: 0%;
+            transition: width .2s;
+          }
+
+          .question-number {
+            color: var(--red);
+            font-weight: bold;
+            font-size: 14px;
+          }
+
+          #questionText {
+            font-size: 21px;
+            margin: 8px 0 22px;
+          }
+
+          .answers {
+            display: grid;
+            gap: 12px;
+          }
+
+          .answer {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 11px;
+            cursor: pointer;
+            transition: background .15s, border-color .15s;
+          }
+
+          .answer:hover {
+            border-color: var(--red);
+            background: #fff8f8;
+          }
+
+          .answer.selected {
+            border: 2px solid var(--red);
+            background: #fff4f4;
+            padding: 13px;
+          }
+
+          .answer input {
+            margin-top: 5px;
+            accent-color: var(--red);
+          }
+
+          .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin-top: 24px;
+          }
+
+          .hidden {
+            display: none !important;
+          }
+
+          .result {
+            text-align: center;
+          }
+
+          .result-circle {
+            width: 130px;
+            height: 130px;
+            margin: 20px auto;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #fff4f4;
+            border: 7px solid var(--red);
+          }
+
+          .result-circle strong {
+            font-size: 36px;
+          }
+
+          .result-circle span {
+            font-size: 12px;
+            color: var(--muted);
+          }
+
+          .result-level {
+            font-size: 35px;
+            color: var(--red);
+            font-weight: bold;
+          }
+
+          .review-item {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 12px;
+            text-align: left;
+          }
+
+          .correct-text {
+            color: var(--green);
+            font-weight: bold;
+          }
+
+          .wrong-text {
+            color: var(--red);
+            font-weight: bold;
+          }
+
+          .review-item p {
+            margin: 5px 0;
+          }
+
+          footer {
+            margin-top: 45px;
+            background: var(--black);
+            color: white;
+            padding: 28px 5%;
+            text-align: center;
+          }
+
+          footer a {
+            color: var(--gold);
+            text-decoration: none;
+          }
+
+          .creator {
+            margin-top: 18px;
+            padding-top: 18px;
+            border-top: 1px solid #ffffff25;
+            color: #d1d5db;
+            font-size: 14px;
+          }
+
+          @media (max-width: 600px) {
+            header {
+              padding: 13px 4%;
+            }
+
+            .logo h1 {
+              font-size: 21px;
+            }
+
+            .logo img {
+              width: 40px;
+              height: 30px;
+            }
+
+            main {
+              margin: 20px auto;
+            }
+
+            .hero {
+              padding: 28px 17px;
+            }
+
+            .card {
+              padding: 18px;
+            }
+
+            .levels {
+              grid-template-columns: repeat(3, 1fr);
+            }
+
+            #questionText {
+              font-size: 19px;
+            }
+
+            .nav-buttons .btn {
+              padding: 10px 13px;
+            }
+          }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img
+          src="https://flagcdn.com/w80/de.png"
+          alt="German flag"
+          width="48"
+          height="36"
+        />
+        <h1>Deutsch<span>Test</span></h1>
+      </div>
+
+      <select id="languageSelect" aria-label="Interface language">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </header>
+
+    <main>
+      <section class="hero" id="intro">
+        <div class="flag-label">🇩🇪 Your German journey starts here</div>
+        <h2 id="heroTitle">Discover Your <span>German Level</span></h2>
+        <p id="heroDescription">
+          Take this free placement test and discover your current German level,
+          from beginner A1 to advanced C2.
+        </p>
+        <div class="features">
+          <span id="feature1">✓ Multiple-choice questions</span>
+          <span id="feature2">✓ Instant results</span>
+          <span id="feature3">✓ Free test</span>
+        </div>
+      </section>
+
+      <section class="card" id="setupCard">
+        <h3 id="aboutTitle">About the test</h3>
+        <p id="aboutDescription">
+          Answer each question by choosing one option. Try to answer without
+          using a translator for a more accurate result.
+        </p>
+
+        <div class="levels">
+          <div class="level">A1<small>Beginner</small></div>
+          <div class="level">A2<small>Elementary</small></div>
+          <div class="level">B1<small>Intermediate</small></div>
+          <div class="level">B2<small>Upper intermediate</small></div>
+          <div class="level">C1<small>Advanced</small></div>
+          <div class="level">C2<small>Proficient</small></div>
+        </div>
+
+        <p>
+          <strong id="questionCount">20 questions</strong> ·
+          <span id="duration">10 minutes</span>
+        </p>
+        <button
+          class="btn btn-primary full"
+          id="startBtn"
+          onclick="startTest()"
+        >
+          Start German Test →
+        </button>
+      </section>
+
+      <section class="card hidden" id="testCard">
+        <div class="test-top">
+          <strong id="testLabel">German Level Test</strong>
+          <div class="timer">⏱ <span id="timer">10:00</span></div>
+        </div>
+
+        <div class="progress">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="question-number" id="questionNumber"></div>
+        <h3 id="questionText"></h3>
+        <div class="answers" id="answers"></div>
+
+        <div class="nav-buttons">
+          <button
+            class="btn btn-light"
+            id="prevBtn"
+            onclick="previousQuestion()"
+          >
+            ← Previous
+          </button>
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()">
+            Next →
+          </button>
+        </div>
+      </section>
+
+      <section class="card hidden result" id="resultCard">
+        <h2 id="resultTitle">Your Results</h2>
+        <div class="result-circle">
+          <strong id="scoreValue">0%</strong>
+          <span id="scoreLabel">Correct answers</span>
+        </div>
+        <p id="resultMessage"></p>
+        <div class="result-level" id="levelValue">A1</div>
+        <p id="levelDescription"></p>
+
+        <button class="btn btn-primary" onclick="showReview()" id="reviewBtn">
+          Review Answers
+        </button>
+        <button class="btn btn-dark" onclick="restartTest()" id="restartBtn">
+          Try Again
+        </button>
+
+        <div class="hidden" id="reviewArea">
+          <h3 id="reviewTitle">Answer Review</h3>
+          <div id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div><strong>DeutschTest</strong> — Learn German step by step 🇩🇪</div>
+      <div class="creator">
+        <p>Created by <strong>Arslen Ayadi</strong></p>
+        <p>German language learning project</p>
+        <p>
+          Instagram:
+          <a
+            href="https://www.instagram.com/arslen_ayedi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >@arslen_ayedi</a
+          >
+        </p>
+        <p>© <span id="year"></span> DeutschTest. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const questions = [
+        {
+          level: "A1",
+          q: "Wie heißt du?",
+          options: [
+            "Ich bin 18 Jahre.",
+            "Ich heiße Anna.",
+            "Ich komme gut.",
+            "Ich wohne müde.",
+          ],
+          answer: 1,
+          explanation: "“Ich heiße Anna” means “My name is Anna.”",
+        },
+        {
+          level: "A1",
+          q: "Ich _____ aus Deutschland.",
+          options: ["komme", "kommst", "kommt", "kommen"],
+          answer: 0,
+          explanation: "With “ich”, the verb is “komme”: Ich komme.",
+        },
+        {
+          level: "A1",
+          q: "Wie viel ist drei plus vier?",
+          options: ["Sechs", "Acht", "Sieben", "Neun"],
+          answer: 2,
+          explanation: "Drei plus vier ist sieben.",
+        },
+        {
+          level: "A1",
+          q: "Choose the correct article: _____ Tisch.",
+          options: ["Die", "Das", "Der", "Ein(e)"],
+          answer: 2,
+          explanation: "“Tisch” is masculine: der Tisch.",
+        },
+        {
+          level: "A1",
+          q: "Ich _____ einen Bruder.",
+          options: ["hast", "habe", "hat", "haben"],
+          answer: 1,
+          explanation: "The correct form is “ich habe”.",
+        },
+        {
+          level: "A2",
+          q: "Gestern _____ ich Fußball gespielt.",
+          options: ["habe", "bin", "hat", "werde"],
+          answer: 0,
+          explanation:
+            "“Spielen” forms the Perfekt with haben: ich habe gespielt.",
+        },
+        {
+          level: "A2",
+          q: "Ich gehe zum Arzt, _____ ich krank bin.",
+          options: ["aber", "denn", "weil", "oder"],
+          answer: 2,
+          explanation:
+            "“Weil” means “because” and sends the conjugated verb to the end.",
+        },
+        {
+          level: "A2",
+          q: "Which sentence is correct?",
+          options: [
+            "Ich kann schwimme.",
+            "Ich kann schwimmen.",
+            "Ich schwimmen kann.",
+            "Ich kann zu schwimmen.",
+          ],
+          answer: 1,
+          explanation:
+            "After a modal verb such as können, use the infinitive at the end.",
+        },
+        {
+          level: "A2",
+          q: "Morgen fahren wir _____ Berlin.",
+          options: ["nach", "zu", "bei", "aus"],
+          answer: 0,
+          explanation: "Use “nach” with most city names: nach Berlin.",
+        },
+        {
+          level: "B1",
+          q: "Wenn ich mehr Zeit hätte, _____ ich mehr lesen.",
+          options: ["werde", "würde", "werde ich", "habe"],
+          answer: 1,
+          explanation:
+            "The Konjunktiv II form “würde” expresses a hypothetical situation.",
+        },
+        {
+          level: "B1",
+          q: "Obwohl es regnete, _____ wir spazieren.",
+          options: ["gingen", "gehen wir", "weil gingen", "gegangen"],
+          answer: 0,
+          explanation:
+            "“Obwohl” introduces a subordinate clause; the main clause can follow with normal word order.",
+        },
+        {
+          level: "B1",
+          q: "Ich interessiere mich _____ Musik.",
+          options: ["an", "für", "über", "mit"],
+          answer: 1,
+          explanation: "The expression is “sich interessieren für”.",
+        },
+        {
+          level: "B1",
+          q: "Er hat vergessen, die Tür _____.",
+          options: [
+            "abschließen",
+            "abgeschlossen",
+            "abzuschließen",
+            "abschließt",
+          ],
+          answer: 2,
+          explanation:
+            "With “vergessen”, an infinitive clause with zu is used here.",
+        },
+        {
+          level: "B2",
+          q: "Je mehr du übst, _____ du wirst.",
+          options: ["desto besser", "so gut", "besser als", "am besten"],
+          answer: 0,
+          explanation: "The comparative structure is “Je ..., desto ...”.",
+        },
+        {
+          level: "B2",
+          q: "Der Vertrag muss bis Freitag _____ werden.",
+          options: [
+            "unterschreiben",
+            "unterschrieben",
+            "unterschrieb",
+            "unterschreibend",
+          ],
+          answer: 1,
+          explanation:
+            "Passive voice uses werden + past participle: unterschrieben werden.",
+        },
+        {
+          level: "B2",
+          q: "Er tat so, als _____ er alles gewusst.",
+          options: ["hat", "hätte", "habe", "wird"],
+          answer: 1,
+          explanation:
+            "“Als hätte” is a common Konjunktiv II structure for unreal comparisons.",
+        },
+        {
+          level: "C1",
+          q: "Die Entscheidung wurde getroffen, _____ lange darüber diskutiert worden war.",
+          options: ["nachdem", "obwohl dass", "damit zu", "sodass wenn"],
+          answer: 0,
+          explanation: "“Nachdem” introduces a temporal subordinate clause.",
+        },
+        {
+          level: "C1",
+          q: "Er bestand darauf, dass der Bericht sofort _____ werde.",
+          options: [
+            "veröffentlicht",
+            "veröffentlichen",
+            "veröffentlichte",
+            "veröffentlichten",
+          ],
+          answer: 0,
+          explanation: "Passive voice in a dass-clause: veröffentlicht werde.",
+        },
+        {
+          level: "C2",
+          q: "Welche Formulierung bedeutet am ehesten, dass etwas nur scheinbar zutrifft?",
+          options: [
+            "ohne Weiteres",
+            "dem Anschein nach",
+            "in aller Regel",
+            "unter Umständen",
+          ],
+          answer: 1,
+          explanation:
+            "“Dem Anschein nach” means “apparently” or “to all appearances.”",
+        },
+        {
+          level: "C2",
+          q: "Was bedeutet „etwas in Kauf nehmen“?",
+          options: [
+            "Etwas kaufen und bezahlen",
+            "Etwas bewusst akzeptieren, obwohl es Nachteile hat",
+            "Etwas sofort ablehnen",
+            "Etwas mit Gewinn verkaufen",
+          ],
+          answer: 1,
+          explanation:
+            "“Etwas in Kauf nehmen” means to accept something despite its disadvantages.",
+        },
+      ];
+
+      const translations = {
+        en: {
+          heroTitle: "Discover Your <span>German Level</span>",
+          heroDescription:
+            "Take this free placement test and discover your current German level, from beginner A1 to advanced C2.",
+          feature1: "✓ Multiple-choice questions",
+          feature2: "✓ Instant results",
+          feature3: "✓ Free test",
+          aboutTitle: "About the test",
+          aboutDescription:
+            "Answer each question by choosing one option. Try to answer without using a translator for a more accurate result.",
+          questionCount: "20 questions",
+          duration: "10 minutes",
+          start: "Start German Test →",
+          testLabel: "German Level Test",
+          previous: "← Previous",
+          next: "Next →",
+          finish: "Finish Test",
+          question: "Question",
+          of: "of",
+          resultTitle: "Your Results",
+          scoreLabel: "Correct answers",
+          resultMessage: "Your estimated German level is:",
+          review: "Review Answers",
+          restart: "Try Again",
+          reviewTitle: "Answer Review",
+          correct: "Correct",
+          incorrect: "Incorrect",
+          yourAnswer: "Your answer",
+          correctAnswer: "Correct answer",
+          unanswered: "Not answered",
+          timesUp: "Time is up! Your test has been submitted.",
+          chooseAnswer: "Please select an answer before continuing.",
+          levels: {
+            A1: "Beginner: You can use familiar everyday expressions and introduce yourself.",
+            A2: "Elementary: You can communicate in simple, routine situations.",
+            B1: "Intermediate: You can understand the main points of familiar topics.",
+            B2: "Upper intermediate: You can understand complex texts and communicate with fluency.",
+            C1: "Advanced: You can use German flexibly and effectively in social and professional contexts.",
+            C2: "Proficient: You can understand almost everything and express yourself precisely.",
+          },
+        },
+        fr: {
+          heroTitle: "Découvrez votre <span>niveau d’allemand</span>",
+          heroDescription:
+            "Passez ce test gratuit pour estimer votre niveau d’allemand, de A1 débutant à C2 avancé.",
+          feature1: "✓ Questions à choix multiples",
+          feature2: "✓ Résultats immédiats",
+          feature3: "✓ Test gratuit",
+          aboutTitle: "À propos du test",
+          aboutDescription:
+            "Choisissez une réponse pour chaque question. Évitez le traducteur pour obtenir un résultat plus précis.",
+          questionCount: "20 questions",
+          duration: "10 minutes",
+          start: "Commencer le test →",
+          testLabel: "Test de niveau d’allemand",
+          previous: "← Précédent",
+          next: "Suivant →",
+          finish: "Terminer le test",
+          question: "Question",
+          of: "sur",
+          resultTitle: "Vos résultats",
+          scoreLabel: "Réponses correctes",
+          resultMessage: "Votre niveau estimé en allemand :",
+          review: "Voir les réponses",
+          restart: "Réessayer",
+          reviewTitle: "Correction des réponses",
+          correct: "Correct",
+          incorrect: "Incorrect",
+          yourAnswer: "Votre réponse",
+          correctAnswer: "Bonne réponse",
+          unanswered: "Sans réponse",
+          timesUp: "Temps écoulé ! Le test a été envoyé.",
+          chooseAnswer: "Veuillez choisir une réponse avant de continuer.",
+          levels: {
+            A1: "Débutant : vous pouvez utiliser des expressions simples et vous présenter.",
+            A2: "Élémentaire : vous pouvez communiquer dans des situations simples.",
+            B1: "Intermédiaire : vous comprenez les points principaux de sujets familiers.",
+            B2: "Intermédiaire supérieur : vous comprenez des textes complexes et communiquez avec aisance.",
+            C1: "Avancé : vous utilisez l’allemand efficacement dans des contextes variés.",
+            C2: "Maîtrise : vous comprenez presque tout et vous exprimez avec précision.",
+          },
+        },
+        de: {
+          heroTitle: "Entdecke dein <span>Deutschniveau</span>",
+          heroDescription:
+            "Mach diesen kostenlosen Einstufungstest und entdecke dein Deutschniveau von A1 bis C2.",
+          feature1: "✓ Multiple-Choice-Fragen",
+          feature2: "✓ Sofortige Ergebnisse",
+          feature3: "✓ Kostenloser Test",
+          aboutTitle: "Über den Test",
+          aboutDescription:
+            "Wähle für jede Frage eine Antwort. Verwende möglichst keinen Übersetzer, damit das Ergebnis genauer ist.",
+          questionCount: "20 Fragen",
+          duration: "10 Minuten",
+          start: "Test starten →",
+          testLabel: "Deutsch-Einstufungstest",
+          previous: "← Zurück",
+          next: "Weiter →",
+          finish: "Test beenden",
+          question: "Frage",
+          of: "von",
+          resultTitle: "Dein Ergebnis",
+          scoreLabel: "Richtige Antworten",
+          resultMessage: "Dein geschätztes Deutschniveau:",
+          review: "Antworten ansehen",
+          restart: "Noch einmal",
+          reviewTitle: "Antworten überprüfen",
+          correct: "Richtig",
+          incorrect: "Falsch",
+          yourAnswer: "Deine Antwort",
+          correctAnswer: "Richtige Antwort",
+          unanswered: "Nicht beantwortet",
+          timesUp: "Die Zeit ist um! Dein Test wurde abgegeben.",
+          chooseAnswer: "Bitte wähle eine Antwort, bevor du fortfährst.",
+          levels: {
+            A1: "Anfänger: Du kannst einfache Ausdrücke verstehen und dich vorstellen.",
+            A2: "Grundkenntnisse: Du kannst dich in einfachen Alltagssituationen verständigen.",
+            B1: "Mittelstufe: Du verstehst die Hauptpunkte vertrauter Themen.",
+            B2: "Gute Mittelstufe: Du verstehst komplexe Texte und kommunizierst recht fließend.",
+            C1: "Fortgeschritten: Du verwendest Deutsch flexibel in vielen Situationen.",
+            C2: "Nahezu muttersprachlich: Du verstehst fast alles und drückst dich präzise aus.",
+          },
+        },
+      };
+
+      let currentLanguage = "en";
+      let currentQuestion = 0;
+      let userAnswers = [];
+      let timeLeft = 600;
+      let timerInterval = null;
+      let testStarted = false;
+
+      const $ = (id) => document.getElementById(id);
+
+      $("year").textContent = new Date().getFullYear();
+
+      $("languageSelect").addEventListener("change", function () {
+        currentLanguage = this.value;
+        applyLanguage();
+
+        if (testStarted && !$("testCard").classList.contains("hidden")) {
+          renderQuestion();
+        }
+
+        if (!$("resultCard").classList.contains("hidden")) {
+          renderResults();
+        }
+      });
+
+      function applyLanguage() {
+        const t = translations[currentLanguage];
+
+        $("heroTitle").innerHTML = t.heroTitle;
+        $("heroDescription").textContent = t.heroDescription;
+        $("feature1").textContent = t.feature1;
+        $("feature2").textContent = t.feature2;
+        $("feature3").textContent = t.feature3;
+        $("aboutTitle").textContent = t.aboutTitle;
+        $("aboutDescription").textContent = t.aboutDescription;
+        $("questionCount").textContent = t.questionCount;
+        $("duration").textContent = t.duration;
+        $("startBtn").textContent = t.start;
+        $("testLabel").textContent = t.testLabel;
+        $("prevBtn").textContent = t.previous;
+        $("resultTitle").textContent = t.resultTitle;
+        $("scoreLabel").textContent = t.scoreLabel;
+        $("resultMessage").textContent = t.resultMessage;
+        $("reviewBtn").textContent = t.review;
+        $("restartBtn").textContent = t.restart;
+        $("reviewTitle").textContent = t.reviewTitle;
+
+        if (testStarted && !$("testCard").classList.contains("hidden")) {
+          updateNavigation();
+        }
+      }
+
+      function startTest() {
+        currentQuestion = 0;
+        userAnswers = new Array(questions.length).fill(null);
+        timeLeft = 600;
+        testStarted = true;
+
+        $("intro").classList.add("hidden");
+        $("setupCard").classList.add("hidden");
+        $("resultCard").classList.add("hidden");
+        $("testCard").classList.remove("hidden");
+        $("reviewArea").classList.add("hidden");
+
+        renderQuestion();
+        startTimer();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function renderQuestion() {
+        const q = questions[currentQuestion];
+        const t = translations[currentLanguage];
+
+        $("questionNumber").textContent =
+          `${t.question} ${currentQuestion + 1} ${t.of} ${questions.length} · ${q.level}`;
+
+        $("questionText").textContent = q.q;
+        $("progressBar").style.width =
+          `${((currentQuestion + 1) / questions.length) * 100}%`;
+
+        const answersBox = $("answers");
+        answersBox.innerHTML = "";
+
+        q.options.forEach((option, index) => {
+          const label = document.createElement("label");
+          label.className =
+            "answer" +
+            (userAnswers[currentQuestion] === index ? " selected" : "");
+
+          const radio = document.createElement("input");
+          radio.type = "radio";
+          radio.name = "answer";
+          radio.value = index;
+          radio.checked = userAnswers[currentQuestion] === index;
+
+          radio.addEventListener("change", () => {
+            userAnswers[currentQuestion] = index;
+            renderQuestion();
+          });
+
+          const text = document.createElement("span");
+          text.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+
+          label.appendChild(radio);
+          label.appendChild(text);
+          answersBox.appendChild(label);
+        });
+
+        updateNavigation();
+      }
+
+      function updateNavigation() {
+        const t = translations[currentLanguage];
+
+        $("prevBtn").disabled = currentQuestion === 0;
+        $("nextBtn").textContent =
+          currentQuestion === questions.length - 1 ? t.finish : t.next;
+      }
+
+      function nextQuestion() {
+        if (userAnswers[currentQuestion] === null) {
+          alert(translations[currentLanguage].chooseAnswer);
+          return;
+        }
+
+        if (currentQuestion < questions.length - 1) {
+          currentQuestion++;
+          renderQuestion();
+        } else {
+          finishTest();
+        }
+      }
+
+      function previousQuestion() {
+        if (currentQuestion > 0) {
+          currentQuestion--;
+          renderQuestion();
+        }
+      }
+
+      function startTimer() {
+        clearInterval(timerInterval);
+        updateTimer();
+
+        timerInterval = setInterval(() => {
+          timeLeft--;
+          updateTimer();
+
+          if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            alert(translations[currentLanguage].timesUp);
+            finishTest();
+          }
+        }, 1000);
+      }
+
+      function updateTimer() {
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+
+        $("timer").textContent =
+          `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+      }
+
+      function finishTest() {
+        clearInterval(timerInterval);
+        $("testCard").classList.add("hidden");
+        $("resultCard").classList.remove("hidden");
+        $("reviewArea").classList.add("hidden");
+        renderResults();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      function getScore() {
+        return userAnswers.reduce((score, answer, index) => {
+          return score + (answer === questions[index].answer ? 1 : 0);
+        }, 0);
+      }
+
+      function getLevel() {
+        const score = getScore();
+        const percentage = score / questions.length;
+
+        if (percentage < 0.2) return "A1";
+        if (percentage < 0.35) return "A2";
+        if (percentage < 0.5) return "B1";
+        if (percentage < 0.7) return "B2";
+        if (percentage < 0.9) return "C1";
+        return "C2";
+      }
+
+      function renderResults() {
+        const t = translations[currentLanguage];
+        const score = getScore();
+        const percentage = Math.round((score / questions.length) * 100);
+        const level = getLevel();
+
+        $("scoreValue").textContent = `${percentage}%`;
+        $("resultTitle").textContent = t.resultTitle;
+        $("scoreLabel").textContent =
+          `${score}/${questions.length} ${t.scoreLabel}`;
+        $("resultMessage").textContent = t.resultMessage;
+        $("levelValue").textContent = level;
+        $("levelDescription").textContent = t.levels[level];
+        $("reviewBtn").textContent = t.review;
+        $("restartBtn").textContent = t.restart;
+
+        if (!$("reviewArea").classList.contains("hidden")) {
+          showReview();
+        }
+      }
+
+      function showReview() {
+        const t = translations[currentLanguage];
+        const reviewList = $("reviewList");
+        reviewList.innerHTML = "";
+
+        questions.forEach((q, index) => {
+          const isCorrect = userAnswers[index] === q.answer;
+          const item = document.createElement("div");
+          item.className = "review-item";
+
+          const title = document.createElement("strong");
+          title.textContent = `${index + 1}. ${q.q}`;
+
+          const status = document.createElement("p");
+          status.className = isCorrect ? "correct-text" : "wrong-text";
+          status.textContent = isCorrect
+            ? `✓ ${t.correct}`
+            : `✗ ${t.incorrect}`;
+
+          const yourAnswer = document.createElement("p");
+          yourAnswer.textContent = `${t.yourAnswer}: ${
+            userAnswers[index] === null
+              ? t.unanswered
+              : q.options[userAnswers[index]]
+          }`;
+
+          const correctAnswer = document.createElement("p");
+          correctAnswer.textContent = `${t.correctAnswer}: ${q.options[q.answer]}`;
+
+          const explanation = document.createElement("p");
+          explanation.textContent = q.explanation;
+
+          item.append(title, status, yourAnswer, correctAnswer, explanation);
+          reviewList.appendChild(item);
+        });
+
+        $("reviewArea").classList.remove("hidden");
+        $("reviewArea").scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      function restartTest() {
+        clearInterval(timerInterval);
+        $("intro").classList.remove("hidden");
+        $("setupCard").classList.remove("hidden");
+        $("testCard").classList.add("hidden");
+        $("resultCard").classList.add("hidden");
+        $("reviewArea").classList.add("hidden");
+        testStarted = false;
+        currentQuestion = 0;
+        userAnswers = [];
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      applyLanguage();
+    </script>
+  </body>
+</html>
